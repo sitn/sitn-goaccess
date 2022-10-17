@@ -1,4 +1,4 @@
-# goaccess-sitn
+# sitn-goaccess
 
 [GoAccess](https://goaccess.io/) configured for SITN.
 
