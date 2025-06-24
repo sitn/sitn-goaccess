@@ -3,6 +3,8 @@ $envFile = (".env")
 if (-Not (Test-Path -Path $envFile)) {
     Write-Error "Please create a .env file based on .env.sample" -ErrorAction Stop
 }
+docker build -t ne2harbor.ne.ch/sgrf/sitn-goaccess .
+docker push ne2harbor.ne.ch/sgrf/sitn-goaccess
 
 # Read .env
 foreach ($line in Get-Content $envFile) {
@@ -13,7 +15,7 @@ foreach ($line in Get-Content $envFile) {
     }
 }
 
-docker build -t sitn/goaccess .
+docker pull ne2harbor.ne.ch/sgrf/sitn-goaccess
 
 foreach ($line in Get-Content $envFile) {
     $args = $line -split "="
